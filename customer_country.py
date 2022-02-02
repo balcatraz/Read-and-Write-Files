@@ -1,4 +1,5 @@
 import csv
+from typing import Counter
 
 
 def main():
@@ -6,11 +7,13 @@ def main():
     outfile = open("customer_country.csv", "w")
 
     reader = csv.reader(infile, delimiter=",")
-    next(reader)
 
+    count = 0
     for rec in reader:
         outfile.write(rec[1] + "," + rec[2] + "," + rec[4] + "\n")
+        count += 1
 
+    print("Number of Records:", count - 1)
     outfile.close()
 
 
